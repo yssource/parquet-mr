@@ -21,6 +21,7 @@
 set -e
 
 [[ $# != 2 ]] && err="Incorrect number of arguments: $#"
+[[ -z $err ]] && ! [[ $1 =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] && err="Invalid release version: \"$1\""
 [[ -z $err ]] && ! [[ $2 =~ ^[0-9]+$ ]] && err="Invalid rc number: \"$2\""
 
 if [[ -n $err ]]; then
